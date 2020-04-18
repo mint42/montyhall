@@ -8,13 +8,13 @@
 #define DEFAULT_SIZE 10000
 #define RED    "\e[1;35m"
 #define GREEN  "\e[1;32m"
-#define NORMAL "\e[m"
+#define WHITE  "\e[m"
 
 void		print_usage(void)
 {
 	printf("\n");
 	printf("*************************************************\n");
-	printf("*  usage: ./a.out [number of iterations]        *\n");
+	printf("*  usage: ./montyhall [iterations]              *\n");
 	printf("*  next time try giving a sample size!          *\n");
 	printf("*  (or change the DEFAULT_SIZE in montyhall.c)  *\n");
 	printf("*************************************************\n");
@@ -63,9 +63,9 @@ int		main(int argc, char **argv)
 	sample_size = (argc == 2) ? atoi(argv[1]) : DEFAULT_SIZE;
 	get_percentages(sample_size, &correct_with_change, &correct_without_change);
 	printf("Without Change:  %s%.2f%%\n", RED, ((float)((float)correct_without_change / (float)sample_size)) * 100);
-	printf(NORMAL);
+	printf(WHITE);
 	printf("With Change:     %s%.2f%%\n", GREEN, ((float)((float)correct_with_change / (float)sample_size)) * 100);
-	printf(NORMAL);
+	printf(WHITE);
 	if (argc == 1)
 		print_usage();
 	return (0);
